@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tgspipe"
+version = "1.0.0"
+description = "A production pipeline for Telegram animated emoji & stickers (.tgs): build, rig, validate, render and QA — with hard gates, not vibes."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "PedramNoSkill" }]
+keywords = ["telegram", "tgs", "lottie", "animated-emoji", "stickers", "qa"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Multimedia :: Graphics :: Animation",
+]
+dependencies = []
+
+[project.optional-dependencies]
+render = ["Pillow>=10"]
+dev = ["pytest>=8", "Pillow>=10"]
+
+[project.scripts]
+tgspipe = "tgspipe.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
